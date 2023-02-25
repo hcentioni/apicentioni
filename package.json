@@ -1,0 +1,29 @@
+{
+  "name": "helpdesk_centioni",
+  "version": "1.0.0",
+  "description": "Sistema de soporte por tickets",
+  "main": "app.js",
+  "scripts": {
+    "build": "babel src --out-dir=dist",
+    "dev": "nodemon src/app.js --exec babel-node"
+  },
+  "author": "Centioni Sergio Hernan",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mssql": "^9.1.1",
+    "multer": "^1.4.5-lts.1",
+    "web-push": "^3.5.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.20.5",
+    "@babel/node": "^7.14.7",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2"
+  }
+}
