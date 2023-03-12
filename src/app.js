@@ -13,6 +13,8 @@ import ticketcategorias from './routes/ticketcategorias.routes';
 import ticketdetalle from './routes/ticketdetalle.routes'
 import upload from './routes/upload.routes'
 import save from './routes/save.routes'
+import cliente from './routes/cliente.routes'
+import register from './routes/register.routes'
 
 const PORT = config.port || 3001;
 const app = express();
@@ -32,9 +34,11 @@ app.use(
     ticketcategorias,
     ticketdetalle,
     upload,
-    save
+    save,
+    cliente,
+    register
     );
 
-app.use(express.static('./src/public'))
+    app.use(express.static('./public'))
 
 app.listen(PORT, ()=> console.log(`Servidor listo en el puerto: ${PORT}`));
