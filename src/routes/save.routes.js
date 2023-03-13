@@ -20,7 +20,7 @@ router.post('/save', (req,res)=>{
     //     if (err) throw err;
 
 
-    fs.writeFile(`./src/tokens/token-${name}.json`, data, function(err) {
+    fs.writeFile(`./tokens/token-${name}.json`, data, function(err) {
         if(err) {
             return console.log(err);
         }

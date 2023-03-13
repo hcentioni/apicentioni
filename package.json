@@ -2,6 +2,12 @@
   "name": "helpdesk_centioni",
   "version": "1.0.0",
   "description": "Sistema de soporte por tickets",
+  "nodemonConfig": {
+    "ignore": [
+      "./tokens/*.*",
+      "./public/*.*"
+    ]
+  },
   "main": "app.js",
   "scripts": {
     "build": "babel src --out-dir=dist",
