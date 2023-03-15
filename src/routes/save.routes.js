@@ -10,7 +10,7 @@ router.post('/save', (req,res)=>{
     //PROCESO LOCALEMNTE DESPUES DESARMAR
 
     const name = Math.floor(Date.now()/1000);
-    
+    console.log('Body es: ', req.body)
     let tokenBrowser =req.body;
 
     let data = JSON.stringify(tokenBrowser);

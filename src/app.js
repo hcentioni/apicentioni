@@ -15,6 +15,7 @@ import upload from './routes/upload.routes'
 import save from './routes/save.routes'
 import cliente from './routes/cliente.routes'
 import register from './routes/register.routes'
+import notificaciones from './routes/sendpush.routes'
 
 const PORT = config.port || 3001;
 const app = express();
@@ -36,7 +37,8 @@ app.use(
     upload,
     save,
     cliente,
-    register
+    register,
+    notificaciones
     );
 
     app.use(express.static('./public'))
