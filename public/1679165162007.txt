@@ -1,0 +1,22 @@
+sunnetgestion.com.ar
+sunnetventas.com.ar
+sunpreventas.com.ar
+sunnetapi.com.ar
+
+
+Usuario: sunnetgestio	
+Acceso alternativo: sd-2410758-h00006.ferozo.net	
+Dominio: sunnetgestion.com.ar	
+Password: Her13582190
+
+
+Usuario: sunnetventas	
+Acceso alternativo: sd-2410758-h00007.ferozo.net	
+Dominio: sunnetventas.com.ar	
+Password: Her13582190
+
+
+Usuario: sunnetpreven	
+Acceso alternativo: sd-2410758-h00008.ferozo.net	
+Dominio: sunnetpreventas.com.ar	
+Password: Her13582190

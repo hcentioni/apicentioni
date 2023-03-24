@@ -9,4 +9,5 @@ router.get('/auth/tickets/detalle/:id', getTicketDetalleCtrl)
 //AGREGO UN DETALLE
 router.post('/auth/tickets/detalle/', addDetalleCtrl)
 
+
 export default router

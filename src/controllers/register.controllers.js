@@ -1,5 +1,5 @@
 import { addUser, existUser } from '../services/register.service'
-import { jConfig } from '../config/mails';
+import { jConfig, emailFrom } from '../config/mails';
 import * as nodemailer from 'nodemailer';
 
 //AGREGAR UNO USUARIO
@@ -58,13 +58,14 @@ const existUserCtrl = async (req, res) => {
 }
 
 function enviarMailNotificacion(user){
+
  try {
   //YA SE INSERTO ENVIO MAIL AL NUEVO USUSARIO
     //ENVIO DE MAILS
     let email = {
-      from: "no-reply@centioni.com.ar",  //remitente
+      from: emailFrom.from,  //remitente
       to: user.Login,  //destinatario
-      subject: "Nuevo mensaje de usuario",  //asunto del correo
+      subject: "Registro Completo",  //asunto del correo
       html: 
       ` 
       <h1 style="text-align:center"><span style="font-size:22px"><strong>Bienvendio a la mesa de ayuda de Centioni Servicios Inform&aacute;ticos S.R.L</strong></span></h1>

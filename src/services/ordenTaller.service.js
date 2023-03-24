@@ -5,19 +5,18 @@ import { sqlConfig } from '../config/sql';
 
 
 //OBTENER DE LA BASE DE DATOS LOS USUAIOS
-const clienteExiste = async (NroDocumento, idTipoDeDocuemento) => {
+const ordenTallerGet = async (IdOrden) => {
     try {
         const pool = await sql.connect(sqlConfig)
         
-        const responseCliente = await pool.request()
-            .input('cuit', sql.VarChar(20), NroDocumento)
-            .input('idTipoDeDocuemento', sql.Int, idTipoDeDocuemento)
-            .execute('Licencia.EmpresaGet')
-        if (responseCliente.recordsets[0]) {
-            return responseCliente
+        const responseOrden = await pool.request()
+            .input('IdOrden', sql.Int, IdOrden)
+            .execute('Taller.OrdenDeTallerGetOne')
+        if (responseOrden.recordsets[0]) {
+            return responseOrden
         } else {
             //EMPRESA NO EXISTE O NO ES UN ASOCIADO
-            return 'Cliente_NoExiste'
+            return 'Orden_NoExiste'
         }
 
     } catch (err) {
@@ -30,4 +29,4 @@ sql.on('error', err => {
     return 'DB_ERROR'
 })
 
-export {clienteExiste};
+export {ordenTallerGet};

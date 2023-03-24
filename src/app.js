@@ -10,12 +10,15 @@ import users from './routes/users.routes';
 import tickets from './routes/tickets.routes';
 import ticketsestados from './routes/ticketsestados.routes';
 import ticketcategorias from './routes/ticketcategorias.routes';
-import ticketdetalle from './routes/ticketdetalle.routes'
-import upload from './routes/upload.routes'
-import save from './routes/save.routes'
-import cliente from './routes/cliente.routes'
-import register from './routes/register.routes'
-import notificaciones from './routes/sendpush.routes'
+import ticketdetalle from './routes/ticketdetalle.routes';
+import upload from './routes/upload.routes';
+import save from './routes/save.routes';
+import cliente from './routes/cliente.routes';
+import register from './routes/register.routes';
+import notificaciones from './routes/sendpush.routes';
+import pushtokens from './routes/pushtokens.routes';
+import ordenTaller from './routes/ordenTaller.routes'
+import tecnicos from './routes/tecnicos.routes'
 
 const PORT = config.port || 3001;
 const app = express();
@@ -38,7 +41,10 @@ app.use(
     save,
     cliente,
     register,
-    notificaciones
+    notificaciones,
+    pushtokens,
+    ordenTaller,
+    tecnicos
     );
 
     app.use(express.static('./public'))

@@ -12,4 +12,15 @@ let jConfig = {
     }
 };
 
-export {jConfig}
+
+
+
+let emailFrom = {
+    "from": "no-reply@centioni.com.ar",
+};
+
+
+
+
+
+export {jConfig,emailFrom}

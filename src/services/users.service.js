@@ -1,7 +1,7 @@
 import "dotenv/config";
 import sql from 'mssql'
 import { sqlConfig } from '../config/sql';
-import { encrypt, verified } from '../utils/bcrypt.handle'
+import { encrypt } from '../utils/bcrypt.handle'
 
 //AGREGAR USUARIO
 const addUser= async (user) => {

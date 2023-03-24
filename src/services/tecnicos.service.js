@@ -3,21 +3,21 @@ import sql from 'mssql'
 import { sqlConfig } from '../config/sql';
 
 
-
 //OBTENER DE LA BASE DE DATOS LOS USUAIOS
-const clienteExiste = async (NroDocumento, idTipoDeDocuemento) => {
+const tecnicosGet = async (IdTecnico, Activo) => {
     try {
         const pool = await sql.connect(sqlConfig)
-        
-        const responseCliente = await pool.request()
-            .input('cuit', sql.VarChar(20), NroDocumento)
-            .input('idTipoDeDocuemento', sql.Int, idTipoDeDocuemento)
-            .execute('Licencia.EmpresaGet')
-        if (responseCliente.recordsets[0]) {
-            return responseCliente
+
+        const responseTecnicos = await pool.request()
+            .input('IdTecnico', sql.Int, IdTecnico)
+            .input('Activo', sql.Bit, Activo)
+            .execute('Taller.TecnicosGet')
+        if (responseTecnicos.recordsets[0]) {
+           
+            return responseTecnicos
         } else {
             //EMPRESA NO EXISTE O NO ES UN ASOCIADO
-            return 'Cliente_NoExiste'
+            return 'Tecnicos_NoExiste'
         }
 
     } catch (err) {
@@ -30,4 +30,4 @@ sql.on('error', err => {
     return 'DB_ERROR'
 })
 
-export {clienteExiste};
+export {tecnicosGet};
