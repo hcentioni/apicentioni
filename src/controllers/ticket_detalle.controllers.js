@@ -21,7 +21,7 @@ const getTicketDetalleCtrl = async (req, res) => {
 
 //AGREGAR UNO DETALLE
 const addDetalleCtrl = async (req, res) => {
-console.log('Por aca');
+
   //CARGO LAS VARIABLES DEL BODY
   const { IdTicket,
     Mensaje,
@@ -151,7 +151,7 @@ Equipo de soporte - Centioni Servicios Informáticos S.R.L
     if (isValidEmail(responseTicket[0].emailContacto)) {
       
       let email = {
-        from: '"Respuesta De La Mesa De Ayuda" </emailFrom.from>',  //remitente
+        from: '"Mesa De Ayuda" </emailFrom.from>',  //remitente
         to: responseTicket[0].emailContacto,  //destinatario
         subject: "Ticket Respondido",  //asunto del correo
         html: plantilla
@@ -161,6 +161,7 @@ Equipo de soporte - Centioni Servicios Informáticos S.R.L
       createTransport.sendMail(email, function (error, info) {
         if (error) {
           console.log("Error al enviar email a: ", responseTicket[0].emailContacto);
+          console.log("Error: ", error);
         } else {
           console.log("Correo enviado correctamente a: ", responseTicket[0].emailContacto);
         }
