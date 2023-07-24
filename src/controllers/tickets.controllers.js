@@ -273,9 +273,10 @@ function enviarMailNotificacionNuevoTicket(ticket) {
 
     //ENVIO DE MAILS
     let email = {
-      from: emailFrom.from,  //remitente
+      from: '"Mesa De Ayuda" </emailFrom.from>',  //remitente
       to: ticket.emailContacto, //destinatario
-      subject: "Nuevo Ticket Generado",  //asunto del correo
+      subject: "Nuevo Ticket Generado",  //asunto del correo,
+      bcc: "soporte@centioni.com.ar",
       html:
         ` 
       <table border="0" width="600" cellspacing="0" cellpadding="0" align="center">
@@ -473,7 +474,7 @@ const enviarMailNotificacionTecnciosNuevoTicket = async (ticket) => {
   try {
     responseTecnicos.recordset.forEach(element => {
       if (isValidEmail(element.email)){
-        console.log('Enviado a: ',element.email)
+        //console.log('Enviado a: ',element.email)
           //POR CADA TECNICO ACTIVO LE ENVIO UN MENSAJE
       let email = {
         from: emailFrom.from,  //remitente

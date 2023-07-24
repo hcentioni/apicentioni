@@ -6,7 +6,7 @@ import * as nodemailer from 'nodemailer';
 const addUserCtrl = async (req, res) => {
 
   //CARGO LAS VARIABLES DEL BODY
-  const { Apellido, Nombre, Area, Puesto, Pass, Login, IdCliente, Dni } = req.body;
+  const { Apellido, Nombre, Area, Puesto, Pass, Login, IdCliente, Dni,Celular } = req.body;
 
   //PREPARO EL OBJETO PARA ENVIAR AL SERVICIO
   const user = {
@@ -17,7 +17,8 @@ const addUserCtrl = async (req, res) => {
     Pass,
     Login,
     IdCliente,
-    Dni
+    Dni,
+    Celular
   }
 
   //LLAMO AL SERVICIO
@@ -63,7 +64,7 @@ function enviarMailNotificacion(user){
   //YA SE INSERTO ENVIO MAIL AL NUEVO USUSARIO
     //ENVIO DE MAILS
     let email = {
-      from: emailFrom.from,  //remitente
+      from: "Centioni-HelpDesk" + emailFrom.from,  //remitente
       to: user.Login,  //destinatario
       subject: "Registro Completo",  //asunto del correo
       html: 

@@ -26,7 +26,7 @@ const app = express();
 app.use(bodyParser.json());
 import morgan from 'morgan'
 
-app.use(cors());
+app.use(cors(''));
 app.use(morgan('dev'));
 
 app.use(

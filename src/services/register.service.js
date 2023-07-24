@@ -51,6 +51,7 @@ const addUser= async (user) => {
             .input('Login', sql.VarChar(50), user.Login)
             .input('IdCliente', sql.Int, user.IdCliente)
             .input('Dni', sql.VarChar(50), user.Dni)
+            .input('Celular', sql.VarChar(50), user.Celular)
 
             .execute('Venta.ClienteContactoInsert')
 
