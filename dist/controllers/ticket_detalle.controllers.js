@@ -53,7 +53,6 @@ var addDetalleCtrl = /*#__PURE__*/function () {
     return _regeneratorRuntime().wrap(function _callee2$(_context2) {
       while (1) switch (_context2.prev = _context2.next) {
         case 0:
-          console.log('Por aca');
           //CARGO LAS VARIABLES DEL BODY
           _req$body = req.body, IdTicket = _req$body.IdTicket, Mensaje = _req$body.Mensaje, ComentarioInterno = _req$body.ComentarioInterno, Adjunto = _req$body.Adjunto, IdUsuario = _req$body.IdUsuario, AdjuntoNameOrg = _req$body.AdjuntoNameOrg, IdContacto = _req$body.IdContacto; //PREPARO EL OBJETO PARA ENVIAR AL SERVICIO
           ticket = {
@@ -65,9 +64,9 @@ var addDetalleCtrl = /*#__PURE__*/function () {
             AdjuntoNameOrg: AdjuntoNameOrg,
             IdContacto: IdContacto
           }; //LLAMO AL SERVICIO
-          _context2.next = 5;
+          _context2.next = 4;
           return (0, _ticket_detalle.addDetalle)(ticket);
-        case 5:
+        case 4:
           responseDetalle = _context2.sent;
           if (responseDetalle === 'DETALLE_NOT_ADD') {
             res.status(400);
@@ -77,7 +76,7 @@ var addDetalleCtrl = /*#__PURE__*/function () {
             res.status(200);
             res.json(responseDetalle);
           }
-        case 7:
+        case 6:
         case "end":
           return _context2.stop();
       }
@@ -107,7 +106,7 @@ var notificarMensajeRespondido = /*#__PURE__*/function () {
           try {
             if ((0, _validar.isValidEmail)(responseTicket[0].emailContacto)) {
               email = {
-                from: '"Respuesta De La Mesa De Ayuda" </emailFrom.from>',
+                from: '"Mesa De Ayuda" </emailFrom.from>',
                 //remitente
                 to: responseTicket[0].emailContacto,
                 //destinatario
@@ -119,6 +118,7 @@ var notificarMensajeRespondido = /*#__PURE__*/function () {
               createTransport.sendMail(email, function (error, info) {
                 if (error) {
                   console.log("Error al enviar email a: ", responseTicket[0].emailContacto);
+                  console.log("Error: ", error);
                 } else {
                   console.log("Correo enviado correctamente a: ", responseTicket[0].emailContacto);
                 }

@@ -63,6 +63,7 @@ function enviarMailNotificacion(user){
  try {
   //YA SE INSERTO ENVIO MAIL AL NUEVO USUSARIO
     //ENVIO DE MAILS
+    console.log(user.Login)
     let email = {
       from: "Centioni-HelpDesk" + emailFrom.from,  //remitente
       to: user.Login,  //destinatario

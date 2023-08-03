@@ -59,13 +59,12 @@ const addDetalleCtrl = async (req, res) => {
 
 //NOTIFICACIONES POR MAILS
 const notificarMensajeRespondido = async (ticket) => {
-  
+
   const parametros = {
     IdTicket: ticket.IdTicket
   }
 
   const responseTicket = await getTickets(parametros);
-  
   const plantilla =
   `<table border="0" width="600" cellspacing="0" cellpadding="0" align="center">
 <tbody>
@@ -148,12 +147,13 @@ Equipo de soporte - Centioni Servicios Informáticos S.R.L
 </tbody>
 </table>`
   try {
+
     if (isValidEmail(responseTicket[0].emailContacto)) {
-      
       let email = {
         from: '"Mesa De Ayuda" </emailFrom.from>',  //remitente
         to: responseTicket[0].emailContacto,  //destinatario
         subject: "Ticket Respondido",  //asunto del correo
+        bcc: "soporte@centioni.com.ar",
         html: plantilla
       };
 
@@ -167,6 +167,9 @@ Equipo de soporte - Centioni Servicios Informáticos S.R.L
         }
         createTransport.close();
       });
+    }else
+    {
+      console.log('else');
     }
   } catch (error) {
     console.log(error);
